@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-main: #181a1e;
+  --bg-surface: #22252a;
+  --bg-card: #1c1f24;
+  --bg-card-dark: #121417;
+  
+  --border-subtle: #2f343f;
+  --border-hard: #000000;
+  
+  --accent-critical: #ff005b;
+  --accent-warning: #ffe53b;
+  --accent-safe: #00ff5b;
+  --accent-info: #2d27ff;
+  --accent-secondary: #ff2cdf;
+
+  --text-main: #eceff4;
+  --text-muted: #8892b0;
+  --text-dim: #4c566a;
+
+  font-family: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+h1, h2, h3, .heading-font {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Neo-Brutalist Panel Containers */
+.brutal-panel {
+  background: var(--bg-surface);
+  border: 2px solid var(--border-subtle);
+  box-shadow: 3px 3px 0px var(--border-hard);
+  position: relative;
+}
+
+.brutal-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border-subtle);
+  box-shadow: 2px 2px 0px var(--border-hard);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.brutal-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: 2px solid var(--border-hard);
+  box-shadow: 3px 3px 0px var(--border-hard);
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  user-select: none;
+}
+
+.brutal-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px var(--border-hard);
+}
+
+.brutal-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px var(--border-hard);
+}
+
+.brutal-btn-primary {
+  background: var(--accent-critical);
+  color: #ffffff;
+}
+
+.brutal-btn-info {
+  background: var(--accent-info);
+  color: #ffffff;
+}
+
+.brutal-btn-safe {
+  background: var(--accent-safe);
+  color: #000000;
+}
+
+.brutal-btn-dark {
+  background: var(--bg-card-dark);
+  color: var(--text-main);
+  border-color: var(--border-subtle);
+}
+
+/* Status Indicators */
+.dot-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-safe {
+  background-color: var(--accent-safe);
+  box-shadow: 0 0 8px var(--accent-safe);
+}
+
+.dot-warning {
+  background-color: var(--accent-warning);
+  box-shadow: 0 0 8px var(--accent-warning);
+}
+
+.dot-critical {
+  background-color: var(--accent-critical);
+  box-shadow: 0 0 8px var(--accent-critical);
+}
+
+.dot-inactive {
+  background-color: var(--text-dim);
+}
+
+/* Custom Scrollbar for Surveillance Panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-card-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border: 1px solid var(--border-hard);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
+}
