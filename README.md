@@ -78,7 +78,6 @@ Built for college viva and research demonstrations. Demonstrates how modern comp
 ## 3. Technology Stack
 
 - **Frontend**: React 18, Vite, Recharts, Lucide-React, Tailwind CSS.
-- **Theme**: Dark Neo-Brutalism (Base `#181A1E` / `#22252A`, high contrast borders, `#FF005B` Critical, `#FFE53B` Warning, `#00FF5B` Safe, `#2D27FF` Analytics).
 - **Backend**: Python 3.12, FastAPI, Uvicorn, WebSockets, OpenCV.
 - **AI Models**: Ultralytics YOLOv8n (COCO) + YOLOv8n Fire/Smoke (`rabahdev/fire-smoke-yolov8n`, AGPL-3.0).
 - **Database**: SQLite with SQLAlchemy 2.0.
@@ -146,16 +145,3 @@ When presenting to examiners or professors, follow this structured demo:
 
 ---
 
-## 6. Viva Q&A Talking Points
-
-- **Q: Why separate MJPEG and WebSocket?**
-  *A: MJPEG streaming guarantees that the video frame and its detection overlay remain 100% synchronized with zero video-codec decoding lag in the browser, while WebSockets handle high-frequency telemetry, metric charts, and bi-directional operator actions without saturating either connection.*
-
-- **Q: Why use independent inference intervals?**
-  *A: Person tracking requires higher temporal resolution (every 2 frames) to capture movement, whereas fire and smoke develop gradually and can be accurately tracked at every 5 frames. This halves the computational load on CPU hardware.*
-
-- **Q: What is temporal stabilization?**
-  *A: Optical noise, reflections, or temporary occlusion can cause single-frame false detections. The risk engine requires a condition to persist across multiple consecutive inference frames before escalating to an incident.*
-
-- **Q: How does hysteresis prevent flickering?**
-  *A: When occupancy is near a threshold (e.g., 50%), normal fluctuations in person count could cause the status to alternate rapidly between SAFE and MODERATE. Hysteresis establishes an upward threshold of 50% and a downward threshold of 46%, ensuring smooth state transitions.*
